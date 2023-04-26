@@ -1,15 +1,13 @@
-<div>
-  <h1>Users info</h1>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <table>
-    <tr>
-      <th>name</th> <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <th colspan = "2">introduction</th>
-    </tr>
-    <tr>
-      <td colspan = "2"><%= @user.introduction %></td>
-    </tr>
-  </table>
-</div>
+<h1>Books</h1>
+<table>
+  <tr>
+    <th>Title</th> <th>Opinion</th>
+  </tr>
+  <%= @books.each do |books| %>
+  <tr>
+    <span></span>
+    <span><%= @books.title %></span>
+    <span><%= @books.introduction %></span>
+  </tr>
+  <% end %>
+</table>
