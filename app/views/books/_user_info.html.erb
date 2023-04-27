@@ -1,31 +1,30 @@
 <div>
-  <h1>Users info</h1>
+  <h1 class = "sidebar_title">Users info</h1>
   
   <table>
     <tr>
-      <th>name</th> <th></th>
+      <th style="text-align:center">name</th>
     </tr>
     <tr>
-      <td colspan = "2"><%= user.name %></td>
+      <td style="text-align:center"><%= user.name %></td>
     </tr>
     
     <tr>
-      <th>introduction</th> <th></th>
+      <th style="text-align:center">introduction</th>
     </tr>
     <tr>
-      <td colspan = "2"><%= user.introduction %></td>
+      <td style="text-align:center"><%= user.introduction %></td>
     </tr>
-    
   </table>
   
   <div>
-    <h1>New book</h1>
+    <h1 class = "sidebar_title top_space">New book</h1>
    <%= form_with model: @Book do |f| %>
    <div>Title</div>
       <%= f.text_field :title %>
     <div>Opinion</div>
       <%= f.text_area :introduction %>
-    <%= f.submit 'Create Book' %>
+   <div><%= f.submit 'Create Book', class: "btn btn-secondary"%></div>
   <% end %>
   </div>
   

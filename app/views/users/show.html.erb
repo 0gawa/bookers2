@@ -1,9 +1,14 @@
+<%= render '/books/user_info', user: @user %>
+
+
+<div>
+  
 <h1>Books</h1>
 <table>
   <tr>
     <th>Title</th> <th>Opinion</th>
   </tr>
-  <%= @books.each do |books| %>
+  <% @books.each do |books| %>
   <tr>
     <span></span>
     <span><%= @books.title %></span>
@@ -11,3 +16,5 @@
   </tr>
   <% end %>
 </table>
+
+</div>

@@ -1,0 +1,18 @@
+<div>
+  <div>
+    Book detail
+  </div>
+  
+  <table>
+    <tr>
+      <td>
+        <span></span> <div><%= @book.user.name %></div>
+      </td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      
+      <td><%= link_to "Edit", edit_book_path(@book.user_id) %></td>
+    </tr>
+    
+  </table>
+</div>

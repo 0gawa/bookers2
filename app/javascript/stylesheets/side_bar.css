@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar_title{
+  font-size: 32px;
+  padding-left: 10px;
+}
+
+.top_space{
+  margin: 15px 0 10px 0;
+}
