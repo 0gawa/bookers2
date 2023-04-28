@@ -17,13 +17,18 @@
     </tr>
   </table>
   
+  <div class = "user_edit_box"><%= link_to edit_user_path(params[:id]) do %>
+    <div class = "center_margin"><i class="fas fa-user-cog"></i></div>
+  <% end %>
+  </div>
+  
   <div>
     <h1 class = "sidebar_title top_space">New book</h1>
    <%= form_with model: @Book do |f| %>
-   <div>Title</div>
+   <div class = "left_padding">Title</div>
       <%= f.text_field :title %>
-    <div>Opinion</div>
-      <%= f.text_area :introduction %>
+    <div class = "left_padding">Opinion</div>
+      <%= f.text_area :body %>
    <div><%= f.submit 'Create Book', class: "btn btn-secondary"%></div>
   <% end %>
   </div>

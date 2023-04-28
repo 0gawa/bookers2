@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.flex_class{
+  display: flex;
+}
+
 .sidebar_title{
   font-size: 32px;
   padding-left: 10px;
@@ -11,4 +15,16 @@
 
 .top_space{
   margin: 15px 0 10px 0;
+}
+
+.left_padding{
+  padding-left: 7px;
+}
+
+.user_edit_box{
+  border: solid 1px;
+}
+
+.center_margin{
+  margin: 0 auto;
 }
