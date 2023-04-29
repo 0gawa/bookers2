@@ -1,3 +1,5 @@
+
+
 <div class = "container">
   <div class = "row">
 
@@ -11,7 +13,7 @@
         </tr>
         <% @books.each do |books| %>
         <tr>
-          <td class = "book_padding"></td>
+          <td class = "book_padding"><%= image_tag @user.get_profile_image(100,100) %></td>
           <td class = "book_padding"><%= link_to books.title, book_path(books.id) %></td>
           <td class = "book_padding"><%= books.body %></td>
         </tr>

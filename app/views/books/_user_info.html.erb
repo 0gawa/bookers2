@@ -1,10 +1,11 @@
-<h3 class = "book_detail">Users info</h3>
+<h3>Users info</h3>
+<div class = "book_detail"><%= image_tag user.get_profile_image(100,100) %></div>
   
   <table>
     <tr class = "bottom_space10">
       <th style="text-align:center">name</th>
     </tr>
-    <tr>
+    <tr class ="book_detail">
       <td style="text-align:center" class = "username-box bottom_space10"><%= user.name %></td>
     </tr>
     

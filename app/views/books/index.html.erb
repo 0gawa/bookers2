@@ -1,6 +1,6 @@
 <div class = "container">
   <div class = "row">
-    <div class ="col-md-4"><%= render 'user_info', user: @user %></div>
+    <div class ="col-md-4"><%= render 'user_info', user: @user, book: @book %></div>
   
     <div class = "col-md-7 offset-md-1">
       <h3 class ="book_detail">Books</h3>
@@ -13,8 +13,13 @@
           <tr>
             <% @books.each do |book| %>
             <td class = "book_padding"><%= image_tag @user.get_profile_image(100,100) %></td>
-            <td class = "book_padding"><%= book.title %></td>
+            <td class = "book_padding">
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
             <td class = "book_padding"><%= book.body %></td>
+            
           </tr>
           <% end %>
         </table>

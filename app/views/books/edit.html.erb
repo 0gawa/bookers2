@@ -1,0 +1,23 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-7">
+      <h2>
+        Editing Book
+      </h2>
+      
+       <%= form_with model: @book, method: :patch do |f| %>
+       <div class = "left_padding top_space8">Title</div>
+          <%= f.text_field :title %>
+        <div class = "left_padding top_space8">Opinion</div>
+          <%= f.text_area :body %>
+       <div class = "top_space8"><%= f.submit 'Update Book', class: "btn btn-secondary"%></div>
+      <% end %>
+      
+      <div class = "top_space8">
+        <%= link_to 'Show', book_path(@book.id) %> | 
+        <%= link_to 'Back', books_path %>
+      </div>
+
+    </div>
+  </div>
+</div>
