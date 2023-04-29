@@ -4,27 +4,47 @@
   box-sizing: border-box;
 }
 
-.flex_class{
-  display: flex;
+.top_space8{
+  margin-top: 8px;
 }
 
-.sidebar_title{
-  font-size: 32px;
-  padding-left: 10px;
-}
-
-.top_space{
-  margin: 15px 0 10px 0;
+.bottom_space10{
+  margin-bottom: 10px;
 }
 
 .left_padding{
   padding-left: 7px;
 }
 
+.book_padding{
+  padding:12px;
+}
+
 .user_edit_box{
   border: solid 1px;
+  border-radius: 7px;
+  margin-top: 20px;
+  height: 45px;
+}
+
+.book_detail{
+  border-bottom: 1px solid;
 }
 
 .center_margin{
-  margin: 0 auto;
+  display: inline-block;
+  justify-content: center;
+}
+
+main{
+  width: 100%;
+}
+
+.flex{
+  display: flex;
+}
+
+.username-box{
+  border-bottom: 1px;
+  border-top: 1px;
 }

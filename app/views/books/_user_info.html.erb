@@ -1,36 +1,34 @@
-<div>
-  <h1 class = "sidebar_title">Users info</h1>
+<h3 class = "book_detail">Users info</h3>
   
   <table>
-    <tr>
+    <tr class = "bottom_space10">
       <th style="text-align:center">name</th>
     </tr>
     <tr>
-      <td style="text-align:center"><%= user.name %></td>
+      <td style="text-align:center" class = "username-box bottom_space10"><%= user.name %></td>
     </tr>
     
     <tr>
-      <th style="text-align:center">introduction</th>
+      <th style="text-align:center" class = "bottom_space10">introduction</th>
     </tr>
     <tr>
-      <td style="text-align:center"><%= user.introduction %></td>
+      <td style="text-align:center" class = "bottom_space10"><%= user.introduction %></td>
     </tr>
   </table>
   
-  <div class = "user_edit_box"><%= link_to edit_user_path(params[:id]) do %>
-    <div class = "center_margin"><i class="fas fa-user-cog"></i></div>
+  <div class = "user_edit_box"><%= link_to edit_user_path(user.id) do %>
+    <div><i style = "text-align:center" class="fas fa-user-cog"></i></div>
   <% end %>
   </div>
   
-  <div>
-    <h1 class = "sidebar_title top_space">New book</h1>
-   <%= form_with model: @Book do |f| %>
-   <div class = "left_padding">Title</div>
+  
+  <div class = "center_margin">
+    <h3 class = "top_space8" style = "text-align:center">New book</h3>
+   <%= form_with model: book, method: :post do |f| %>
+   <div class = "left_padding top_space8">Title</div>
       <%= f.text_field :title %>
-    <div class = "left_padding">Opinion</div>
+    <div class = "left_padding top_space8">Opinion</div>
       <%= f.text_area :body %>
-   <div><%= f.submit 'Create Book', class: "btn btn-secondary"%></div>
+   <div class = "top_space8"><%= f.submit 'Create Book', class: "btn btn-secondary"%></div>
   <% end %>
   </div>
-  
-</div>

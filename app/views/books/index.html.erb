@@ -1,16 +1,25 @@
-<%= render 'user_info', user: @user %>
-
-<div>
-  <h1>Books</h1>
-
-  <div>
-    <% @books.each do |book| %>
-    <span>
-    <div><%= image_tag @user.get_profile_image(100,100) %></div>
-    </span>
-    <span><%= book.title %></span>
-    <span><%= book.body %></span>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-md-4"><%= render 'user_info', user: @user %></div>
+  
+    <div class = "col-md-7 offset-md-1">
+      <h3 class ="book_detail">Books</h3>
     
-    <% end %>
+      <div class ="book_detail">
+        <table>
+          <tr class ="book_detail">
+            <th class = "book_padding"></th> <th class = "book_padding">Title</th> <th class = "book_padding">Opinion</th>
+          </tr>
+          <tr>
+            <% @books.each do |book| %>
+            <td class = "book_padding"><%= image_tag @user.get_profile_image(100,100) %></td>
+            <td class = "book_padding"><%= book.title %></td>
+            <td class = "book_padding"><%= book.body %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    
   </div>
 </div>

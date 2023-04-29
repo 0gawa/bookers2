@@ -1,19 +1,22 @@
-<div class = "flex_class">
-<div><%= render '/books/user_info', user: @user %></div>
-
-<div>
-  <h1>Users</h1>
-  
-  <table>
-    <tr>
-      <th>image</th> <th>name</th> <th></th>
-    </tr>
+<div class = "container">
+  <div class = "row">
     
-    <% @users.each do |user| %>
-    <tr>
-      <td></td> <td><%= user.name %></td> <td><%= link_to "Show", user_path(user.id) %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>
+    <div class ="col-md-4"><%= render '/books/user_info', user: @user, book: @book %></div>
+    
+    <div class = "col-md-7 offset-md-1">
+      <h3 class ="book_detail">Users</h3>
+      <table>
+        <tr class ="book_detail">
+          <th class = "book_padding">image</th> <th class = "book_padding">name</th> <th class = "book_padding"></th>
+        </tr>
+        
+        <% @users.each do |user| %>
+        <tr>
+          <td class = "book_padding"></td> <td class = "book_padding"><%= user.name %></td> <td class = "book_padding"><%= link_to "Show", user_path(user.id) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+      
+  </div>
 </div>

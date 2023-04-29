@@ -1,18 +1,29 @@
-<div>
-  <div>
-    Book detail
+<div class = "container">
+  <div class = "row">
+    
+  <div class = "col-md-4"><%= render '/books/user_info', user: @user, book: @book %></div>
+  
+  <div class = "col-md-7 offset-md-1">
+    <h3 class ="book_detail">
+      Book detail
+    </h3>
+  
+    <table>
+      <tr>
+        <td>
+          <span></span> <div><%= @book_user.user.name %></div>
+        </td>
+        <td class = "book_padding"><%= @book_user.title %></td>
+        <td class = "book_padding"><%= @book_user.body %></td>
+      
+      <% if @book_user.id = current_user.id %>
+        <td class = "book_padding"><%= link_to "Edit", edit_book_path(@book_user.id) %></td>
+        <td class = "book_padding"><%= link_to "destroy", book_path(@book_user.id) %></td>
+      <% end %>
+      </tr>
+    </table>
+    
   </div>
   
-  <table>
-    <tr>
-      <td>
-        <span></span> <div><%= @book.user.name %></div>
-      </td>
-      <td><%= @book.title %></td>
-      <td><%= @book.body %></td>
-      
-      <td><%= link_to "Edit", edit_book_path(@book.user_id) %></td>
-    </tr>
-    
-  </table>
+  </div>
 </div>

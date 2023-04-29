@@ -1,20 +1,23 @@
-<%= render '/books/user_info', user: @user %>
+<div class = "container">
+  <div class = "row">
 
+    <div class ="col-md-4"><%= render '/books/user_info', user: @user, book: @book %></div>
 
-<div>
-  
-<h1>Books</h1>
-<table>
-  <tr>
-    <th>Title</th> <th>Opinion</th>
-  </tr>
-  <% @books.each do |books| %>
-  <tr>
-    <span></span>
-    <span><%= @books.title %></span>
-    <span><%= @books.introduction %></span>
-  </tr>
-  <% end %>
-</table>
+    <div class = "col-md-7 offset-md-1">
+      <h3 class ="book_detail">Books</h3>
+      <table>
+        <tr class ="book_detail">
+          <th class = "book_padding"></th> <th class = "book_padding">Title</th> <th class = "book_padding">Opinion</th>
+        </tr>
+        <% @books.each do |books| %>
+        <tr>
+          <td class = "book_padding"></td>
+          <td class = "book_padding"><%= link_to books.title, book_path(books.id) %></td>
+          <td class = "book_padding"><%= books.body %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
 
+  </div>
 </div>
