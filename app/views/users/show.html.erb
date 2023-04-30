@@ -14,6 +14,7 @@
           <td class = "book_padding"><%= link_to image_tag(@user.get_profile_image(100,100)), user_path(books.user_id)%></td>
           <td class = "book_padding"><%= link_to books.title, book_path(books.id) %></td> 
           <td class = "book_padding"><%= books.body %></td>
+          <td><%= "コメント数: #{book.book_comments.count}"%></td>
         </tr>
         <% end %>
       </table>

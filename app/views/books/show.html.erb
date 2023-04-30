@@ -22,14 +22,33 @@
         <td class = "book_padding">
           <%= link_to book_path(@book_user.id), method: :get do %><%= @book_user.title %><% end %></td>
         <td class = "book_padding"><%= @book_user.body %></td>
-      
+        <td>
+          <div>
+            <p>コメント件数：<%= @book_user.book_comments.count %></p>
+            <% @book_user.book_comments.each do |book_comment| %>
+              <p><%= image_tag book_comment.user.get_profile_image(100,100) %></p>
+              <%= book_comment.user.name %>
+              <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+            <% end %>
+          </div>
+        </td>
       <% if @book_user.user_id == current_user.id %>
         <td class = "book_padding"><%= link_to "Edit", edit_book_path(@book_user.id), class: "btn btn-success" %></td>
         <td class = "book_padding"><%= link_to "Destroy", book_path(@book_user.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
       <% end %>
       </tr>
     </table>
-    
+      
+  <div>
+    <%= form_with model: [@book_user, @comment] do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+      <%= f.submit "送信" %>
+    <% end %>
+  </div>
+  
+    <div>
+      
+    </div>
   </div>
   
   </div>
