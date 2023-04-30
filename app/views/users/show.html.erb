@@ -1,20 +1,18 @@
-
-
 <div class = "container">
   <div class = "row">
 
-    <div class ="col-md-4"><%= render '/books/user_info', user: @user, book: @book %></div>
+    <div class ="col-md-3"><%= render '/books/user_info', user: @user, book: @book %></div>
 
-    <div class = "col-md-7 offset-md-1">
+    <div class = "col-md-8 offset-md-1">
       <h3 class ="book_detail">Books</h3>
       <table>
         <tr class ="book_detail">
           <th class = "book_padding"></th> <th class = "book_padding">Title</th> <th class = "book_padding">Opinion</th>
         </tr>
         <% @books.each do |books| %>
-        <tr>
-          <td class = "book_padding"><%= image_tag @user.get_profile_image(100,100) %></td>
-          <td class = "book_padding"><%= link_to books.title, book_path(books.id) %></td>
+        <tr class = "book_detail">
+          <td class = "book_padding"><%= link_to image_tag(@user.get_profile_image(100,100)), user_path(books.user_id)%></td>
+          <td class = "book_padding"><%= link_to books.title, book_path(books.id) %></td> 
           <td class = "book_padding"><%= books.body %></td>
         </tr>
         <% end %>

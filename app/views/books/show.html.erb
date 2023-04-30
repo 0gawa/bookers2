@@ -5,9 +5,9 @@
 <div class = "container">
   <div class = "row">
     
-  <div class = "col-md-4"><%= render '/books/user_info', user: @user, book: @book %></div>
+  <div class = "col-md-3"><%= render '/books/user_info', user: @user, book: @book %></div>
   
-  <div class = "col-md-7 offset-md-1">
+  <div class = "col-md-8 offset-md-1">
     <h3 class ="book_detail">
       Book detail
     </h3>
@@ -25,7 +25,7 @@
       
       <% if @book_user.user_id == current_user.id %>
         <td class = "book_padding"><%= link_to "Edit", edit_book_path(@book_user.id), class: "btn btn-success" %></td>
-        <td class = "book_padding"><%= link_to "destroy", book_path(@book_user.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+        <td class = "book_padding"><%= link_to "Destroy", book_path(@book_user.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
       <% end %>
       </tr>
     </table>
