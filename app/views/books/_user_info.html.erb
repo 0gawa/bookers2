@@ -16,20 +16,20 @@
       <td style="text-align:center" class = "bottom_space10"><%= user.introduction %></td>
     </tr>
   </table>
-  <div class = "user_edit_box">
-  <%= link_to edit_user_path(user.id), class: "link2" do %>
+  <div class = "row">
+  <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
     <div class = "user_edit_bottom"><i class="fas fa-user-cog"></i></div>
   <% end %>
   </div>
   
   
   <div class = "center_margin">
-    <h3 class = "top_space8" style = "text-align:center">New book</h3>
+    <h3 class = "top_space8">New book</h3>
    <%= form_with model: book, method: :post do |f| %>
    <div class = "left_padding top_space8">Title</div>
-      <%= f.text_field :title %>
+      <%= f.text_field :title ,size: 50%>
     <div class = "left_padding top_space8">Opinion</div>
-      <%= f.text_area :body %>
+      <%= f.text_area :body,size: "50×20" %>
    <div class = "top_space8"><%= f.submit 'Create Book', class: "btn btn-success"%></div>
   <% end %>
   </div>
