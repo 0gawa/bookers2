@@ -27,9 +27,9 @@
     <h3 class = "top_space8">New book</h3>
    <%= form_with model: book, method: :post do |f| %>
    <div class = "left_padding top_space8">Title</div>
-      <%= f.text_field :title ,size: 50%>
+      <%= f.text_field :title ,size: 20%>
     <div class = "left_padding top_space8">Opinion</div>
-      <%= f.text_area :body,size: "50×20" %>
+      <%= f.text_area :body,size: "20×30" %>
    <div class = "top_space8"><%= f.submit 'Create Book', class: "btn btn-success"%></div>
   <% end %>
   </div>
