@@ -26,6 +26,7 @@
   margin-top: 20px;
   height: 38px;
   text-align: center;
+  width: 100%;
   padding: 5px 0;
 }
 
@@ -61,4 +62,8 @@ main{
 
 .user_edit_bottom{
   display: inline-block; 
+}
+
+.book_root{
+  color: white;
 }

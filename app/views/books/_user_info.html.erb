@@ -16,12 +16,11 @@
       <td style="text-align:center" class = "bottom_space10"><%= user.introduction %></td>
     </tr>
   </table>
-  
-  <%= link_to edit_user_path(user.id) do %>
-    <div class = "user_edit_box">
-      <div class = "user_edit_bottom"><i class="fas fa-user-cog"></i></div>
-    </div>
+  <div class = "user_edit_box">
+  <%= link_to edit_user_path(user.id), class: "link2" do %>
+    <div class = "user_edit_bottom"><i class="fas fa-user-cog"></i></div>
   <% end %>
+  </div>
   
   
   <div class = "center_margin">
@@ -31,6 +30,6 @@
       <%= f.text_field :title %>
     <div class = "left_padding top_space8">Opinion</div>
       <%= f.text_area :body %>
-   <div class = "top_space8"><%= f.submit 'Create Book', class: "btn btn-secondary"%></div>
+   <div class = "top_space8"><%= f.submit 'Create Book', class: "btn btn-success"%></div>
   <% end %>
   </div>
