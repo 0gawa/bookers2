@@ -17,11 +17,11 @@
     </tr>
   </table>
   
-  <div class = "user_edit_box">
-      <%= link_to edit_user_path(user.id) do %>
-        <div><i style = "text-align:center" class="fas fa-user-cog"></i></div>
-      <% end %>
-  </div>
+  <%= link_to edit_user_path(user.id) do %>
+    <div class = "user_edit_box">
+      <div class = "user_edit_bottom"><i class="fas fa-user-cog"></i></div>
+    </div>
+  <% end %>
   
   
   <div class = "center_margin">

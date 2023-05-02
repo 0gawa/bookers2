@@ -22,7 +22,7 @@
         <td class = "book_padding">
           <%= link_to book_path(@book_user.id), method: :get do %><%= @book_user.title %><% end %></td>
         <td class = "book_padding"><%= @book_user.body %></td>
-        <td>
+        <td class = "book_comment">
           <% if @book_user.favorited_by?(current_user) %>
               <%= link_to book_favorites_path(@book_user), method: :delete do %>
                 <i class="fas fa-heart" style="color: #df0707;"></i><%= @book_user.favorites.count %>
@@ -38,8 +38,7 @@
         </td>
         <td>
           <div>
-            <p>コメント数：<%= @book_user.book_comments.count %></p>
-            
+            コメント数：<%= @book_user.book_comments.count %>
           </div>
         </td>
       <% if @book_user.user_id == current_user.id %>
@@ -61,7 +60,8 @@
       <div class = "comment_index">
         <%= image_tag book_comment.user.get_profile_image(100,100) %>
         <%= book_comment.user.name %>
-        <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
+        <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+        <span class = "book_comment"><%= book_comment.comment %></span>
         <% if book_comment.user_id == current_user.id %>
           <%= link_to "Destroy", book_book_comment_path(book_comment.book_id,book_comment.id), class: "btn btn-danger", method: :delete%>
         <% end %>

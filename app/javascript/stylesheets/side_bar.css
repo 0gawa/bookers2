@@ -25,6 +25,8 @@
   border-radius: 7px;
   margin-top: 20px;
   height: 38px;
+  text-align: center;
+  padding: 5px 0;
 }
 
 .book_detail{
@@ -51,4 +53,12 @@ main{
 
 .comment_index{
   margin-top: 15px;
+}
+
+.book_comment{
+  padding: 0 8px;
+}
+
+.user_edit_bottom{
+  display: inline-block; 
 }

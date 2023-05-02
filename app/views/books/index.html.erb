@@ -8,35 +8,31 @@
 <% end %>
 <div class = "container">
   <div class = "row">
-    
+
     <div class ="col-md-3"><%= render 'user_info', user: @user, book: @book %></div>
-  
+
     <div class = "col-md-8 offset-md-1">
       <h3 class ="book_detail">Books</h3>
-    
+
       <div>
         <table>
           <tr class ="book_detail">
-            <th class = "book_padding"></th> <th class = "book_padding">Title</th> <th class = "book_padding">Opinion</th>
+            <th class = "book_padding"></th> <th class = "book_padding">Title</th> <th class = "book_padding">Opinion</th><th></th><th></th>
           </tr>
           <% @books.each do |book| %>
             <tr class = "book_detail">
               <td class = "book_padding"><%= link_to image_tag(book.user.get_profile_image(100,100)), user_path(book.user_id) %></td>
               <td class = "book_padding"><%= link_to book.title, book_path(book.id)%></td>
               <td class = "book_padding"><%= book.body %></td>
-              <td>
+              <td class = "book_comment">
                 <% if book.favorited_by?(current_user) %>
-                  <p>
-                    <%= link_to book_favorites_path(book), method: :delete do %>
-                      <i class="fas fa-heart" style="color: #df0707;"></i><%= book.favorites.count %>
-                    <% end %>
-                  </p>
-                  <% else %>
-                  <p>
-                    <%= link_to book_favorites_path(book), method: :post do %>
-                      <i class="fas fa-heart" style="color: #101e89;"></i><%= book.favorites.count %> 
-                    <% end %>
-                  </p>
+                  <%= link_to book_favorites_path(book), method: :delete do %>
+                    <i class="fas fa-heart" style="color: #df0707;"></i><%= book.favorites.count %>
+                  <% end %>
+                <% else %>
+                  <%= link_to book_favorites_path(book), method: :post do %>
+                    <i class="fas fa-heart" style="color: #101e89;"></i><%= book.favorites.count %>
+                  <% end %>
                 <% end %>
               </td>
               <td><%= "コメント数: #{book.book_comments.count}"%></td>
@@ -45,6 +41,6 @@
         </table>
       </div>
     </div>
-    
+
   </div>
 </div>
