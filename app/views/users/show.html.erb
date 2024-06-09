@@ -1,35 +1,14 @@
-<div class = "container">
-  <div class = "row">
-
-    <div class ="col-md-3"><%= render '/books/user_info', user: @user, book: @book %></div>
-
-    <div class = "col-md-8 offset-md-1">
-      <h3 class ="book_detail">Books</h3>
-      <table>
-        <tr class ="book_detail">
-          <th class = "book_padding"></th> <th class = "book_padding">Title</th> <th class = "book_padding">Opinion</th>
-        </tr>
-        <% @books.each do |books| %>
-        <tr class = "book_detail">
-          <td class = "book_padding"><%= link_to image_tag(@user.get_profile_image(100,100)), user_path(books.user_id)%></td>
-          <td class = "book_padding"><%= link_to books.title, book_path(books.id) %></td> 
-          <td class = "book_padding"><%= books.body %></td>
-          <td class = "book_comment">
-            <% if books.favorited_by?(current_user) %>
-              <%= link_to book_favorites_path(books), method: :delete do %>
-                <i class="fas fa-heart" style="color: #df0707;"></i><%= books.favorites.count %>
-              <% end %>
-            <% else %>
-              <%= link_to book_favorites_path(books), method: :post do %>
-                <i class="fas fa-heart" style="color: #101e89;"></i><%= books.favorites.count %> 
-              <% end %>
-          <% end %>
-          </td>
-          <td><%= "コメント数: #{books.book_comments.count}"%></td>
-        </tr>
-        <% end %>
-      </table>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'info', user: @user %>
+      <h2 class="mt-3">New book</h2>
+      <%= render 'books/form', book: @book %>
     </div>
-
+    <div class='col-md-8 offset-md-1'>
+      <h2>Books</h2>
+      <%= render 'books/index',books: @books %>
+    </div>
   </div>
 </div>
