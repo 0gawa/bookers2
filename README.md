@@ -1,24 +1,11 @@
-# README
+# Bookers2
+  
+  これはrailsの練習用アプリケーションです.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ブランチごとの説明
+## main
+- 非同期いいねとコメント
+- フォロー機能
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## SNS_system
+- SNS向けの機能
