@@ -20,7 +20,7 @@
 
 <div class='row'>
   <% if current_user != user %>
-    <%= render "relationships/btn", user: user %>
+    <div class="mb-2 mx-auto"><%= render "relationships/btn", user: user %></div>
   <% end %>
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
     <i class="fas fa-user-cog"></i>
