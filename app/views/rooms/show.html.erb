@@ -1,0 +1,17 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h3><%=@another_entry.user.name%>さんとのチャットです.</h3>
+        <div class="row">
+
+        </div>
+
+        <div class="row">
+            <%=form_with model: @message, url: messages_path, method: :post, local: true do |f|%>
+              <%= f.text_area :message, rows:'3', placeholder: "140字以内である必要があります", class: "contact-form" %>
+              <%= f.submit "送信する" do %><i class="fa-regular fa-paper-plane fa-lg"></i><%end%>
+            <%end%>
+        </div>
+    </div>
+  </div>
+</div>
