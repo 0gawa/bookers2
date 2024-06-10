@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-10 offset-1">
+        <h3 class="text-center"><%=@another_entry.user.name%>さんとのチャットです</h3>
+        <div class="row">
+            <%@messages.each do |m|%>
+              <div class="col-10 offset-1">
+                <h6><%=m.user.name%></h6>
+                <p><%=m.message%></p>
+              </div>
+            <%end%>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <%=form_with model: @message, url: messages_path, method: :post, local: true do |f|%>
+              <%= fields_for @room do |e| %>
+                <%= e.number_field :room_id, value: @room.id, hidden: true%>
+              <%end%>
+              <div class="col-10 offset-1"><%= f.text_area :message, rows:'3', placeholder: "140字以内である必要があります", class: "form-control" %></div>
+              <%= f.submit "送信する", class: "btn btn-secondary offset-4 col-4 mt-2"%>
+            <%end%>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

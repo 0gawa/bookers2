@@ -13,6 +13,9 @@ class User < ApplicationRecord
   
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
+
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
   
   has_one_attached :profile_image
 
@@ -29,6 +32,10 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  def mutual_follow?(me, someone)
+    return me.following?(someone) && someone.following?(me)
   end
 
   def get_profile_image(weight, height)
