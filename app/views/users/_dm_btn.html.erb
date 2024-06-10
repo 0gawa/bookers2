@@ -1,0 +1,12 @@
+<%unless current_user.id == user.id%>
+    <%if @is_room%>
+        <%=link_to "DM画面へ", room_path(@room_id), class: "btn btn-secondary"%>
+    <%else%>
+        <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+            <%= e.number_field :user_id, value: user.id, hidden: true%>
+        <%end%>
+              <%= f.submit "DMを始める", class: "btn btn-secondary"%>
+        <%end%>
+    <%end%>
+<%end%>

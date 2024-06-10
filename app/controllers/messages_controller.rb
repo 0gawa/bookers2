@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     def create
         message = Message.new(message_params)
         message.user_id = current_user.id
+        message.room_id = params[:room][:room_id]
         if message.save
           redirect_to room_path(message.room_id)
         else
