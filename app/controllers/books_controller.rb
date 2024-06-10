@@ -4,6 +4,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book.view_count+=1
+    @book.save
     @book_comment = BookComment.new
   end
 
