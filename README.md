@@ -10,3 +10,6 @@
 ## SNS_system
 - SNS向けの機能
   - DM機能
+
+## record_system
+- 記録アプリとしての機能拡張
