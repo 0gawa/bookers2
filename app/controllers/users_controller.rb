@@ -75,6 +75,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def count_books
+    user = User.includes(:books).find(params[:user_id])
+    date = Date.parse(params[:created_at])
+    @books = user.books.where(created_at: date.all_day)
+  end
 
   private
 
