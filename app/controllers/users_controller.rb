@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @is_room = false
     @books = @user.books
     @book = Book.new
+    @today_books = @user.books.created_today
+    @yesterday_books = @user.books.created_yesterday
+    @this_week_books = @user.books.created_this_week
+    @last_week_books = @user.books.created_last_week
     
     if @user.id == current_user.id || @current_entry.nil? || @another_entry.nil?
       @room = Room.new
@@ -71,6 +75,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def count_books
+    user = User.includes(:books).find(params[:user_id])
+    date = Date.parse(params[:created_at])
+    @books = user.books.where(created_at: date.all_day)
+  end
 
   private
 

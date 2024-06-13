@@ -1,0 +1,7 @@
+$('.count_book_perDay').html(`
+  <h3>検索結果</h3>
+  <table class="table" >
+    <tr class=""><th>投稿数</th></tr>
+    <tr class=""><td><%= j( @books.count ) %></td></tr>
+  </table>
+`)
