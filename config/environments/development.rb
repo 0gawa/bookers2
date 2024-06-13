@@ -76,4 +76,20 @@ Rails.application.configure do
   
   config.active_job.queue_adapter = :inline
   config.hosts << "1d074e95ec634c4995975f218fb0d2d3.vfs.cloud9.ap-northeast-1.amazonaws.com"
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         'smtp.gmail.com',
+    port:            587,
+    domain:          'gmail.com',
+    user_name:       ENV['USER_NAME'],
+    password:        ENV['PASSWORD'],
+    authentication:  'plain',
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 
+  }
+  config.action_mailer.asset_host = 'http://localhost:3100'
+  config.action_mailer.default_url_options = { host: 'localhost:3100' }
 end
