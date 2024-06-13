@@ -4,6 +4,7 @@
       <th>グループアイコン</th>
       <th>グループ名</th>
       <th>紹介文</th>
+      <th>メンバー数</th>
       <th><th>
     </tr>
   </thead>
@@ -11,8 +12,9 @@
     <% groups.each do |g| %>
       <tr>
         <td><%= image_tag g.get_group_image(80,80) %></td>
-        <td><%= g.name %></td>
+        <td><%=link_to g.name, group_path(g.id) %></td>
         <td><%= g.introduction%></td>
+        <td><%=g.users.count%></td>
         <td>
         <% if g.is_owned_by?(current_user) %>
             <%= link_to 'Edit', edit_group_path(g.id), class: "btn btn-success" %>

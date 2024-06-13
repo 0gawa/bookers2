@@ -12,6 +12,10 @@ class Group < ApplicationRecord
       owner.id == user.id
     end
 
+    def include_user?(user)
+      group_users.exists?(user_id: user.id)
+    end
+
     def get_group_image(weight, height)
         unless self.group_image.attached?
           file_path = Rails.root.join('app/assets/images/no_image.jpg')
