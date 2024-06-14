@@ -14,7 +14,13 @@ import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
 import "../stylesheets/side_bar"
+import Raty from "../raty"
 
+window.raty = function(elem,opt) {
+  var raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+};
 
 Rails.start()
 Turbolinks.start()

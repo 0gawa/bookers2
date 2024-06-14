@@ -1,0 +1,10 @@
+<div class="" id="star_<%= book.id %>"></div>
+<script>
+  var elem = document.querySelector('star_<%= book.id %>');
+  var opt = {
+      readOnly: true,
+      score: <%= book.star %>
+  };
+  var raty =  new Raty(elem,opt)
+  raty.init();
+</script>
