@@ -1,10 +1,12 @@
-<div class="" id="star_<%= book.id %>"></div>
+<div id="star_<%= book.id %>"></div>
 <script>
-  var elem = document.querySelector('star_<%= book.id %>');
+  var elem = document.querySelector('#star_<%= book.id %>');
   var opt = {
+      starOff   : '<%= asset_path('star-off.png') %>',
+      starOn    : '<%= asset_path('star-on.png') %>',
+      starHalf    : '<%= asset_path('star-half.png') %>',
       readOnly: true,
       score: <%= book.star %>
   };
-  var raty =  new Raty(elem,opt)
-  raty.init();
+  raty(elem,opt);
 </script>

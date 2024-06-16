@@ -10,14 +10,17 @@
 
 <div class="form-group mt-2">
   <%if book.id.nil?%>
-    <div class="mt-2" id="post_raty"></div>
+    評価<div class="mt-2" id="post_raty"></div>
     <script>
       var elem = document.querySelector('#post_raty');
       var opt = {
+          starOff: '<%= asset_path('star-off.png') %>',
+          starOn: '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
           scoreName: 'book[star]',
+          half: true
       };
-      var raty =  new Raty(elem,opt)
-      raty.init();
+      raty(elem,opt);
     </script>
   <%else%>
     <%= render "layouts/static_star", book: book %>

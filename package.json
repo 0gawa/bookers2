@@ -19,5 +19,9 @@
     "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
     "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "develop": "NODE_OPTIONS='--openssl-legacy-provider' gatsby develop"
   }
+    
 }
