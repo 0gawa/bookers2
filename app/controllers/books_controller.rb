@@ -12,11 +12,17 @@ class BooksController < ApplicationController
   def index
     to  = Time.current.at_end_of_day
     from  = (to - 6.day).at_beginning_of_day
-    @books = Book.includes(:favorites).
-      sort {|a,b| 
-        b.favorites.where(created_at: from...to).size <=> 
-        a.favorites.where(created_at: from...to).size
-      }
+    if params[:status].to_i == 1
+      @books = Book.includes(:favorites).all.order(created_at: :desc)
+    elsif params[:status].to_i == 2
+      @books = Book.includes(:favorites).all.order(star: :desc)
+    else
+      @books = Book.includes(:favorites).
+        sort {|a,b| 
+          b.favorites.where(created_at: from...to).size <=> 
+          a.favorites.where(created_at: from...to).size
+        }
+    end
     @book = Book.new
   end
 
