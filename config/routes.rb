@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   
   get "home/about"=>"homes#about"
-
+  
+  get '/books/search_tag', to: 'books#search_tag', as: "search"
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
@@ -23,6 +24,5 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/search', to: 'searches#search'
   post '/count_books' => 'users#count_books', as: 'count_books'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_13_123326) do
+ActiveRecord::Schema.define(version: 2024_06_16_150825) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -111,6 +111,23 @@ ActiveRecord::Schema.define(version: 2024_06_13_123326) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tag_relationships", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id", "tag_id"], name: "index_tag_relationships_on_book_id_and_tag_id", unique: true
+    t.index ["book_id"], name: "index_tag_relationships_on_book_id"
+    t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -131,4 +148,6 @@ ActiveRecord::Schema.define(version: 2024_06_13_123326) do
   add_foreign_key "entries", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "tag_relationships", "books"
+  add_foreign_key "tag_relationships", "tags"
 end

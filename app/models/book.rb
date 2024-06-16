@@ -2,13 +2,24 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :book_comments, dependent: :destroy
   has_many :favorites
+  has_many :tag_relationships, dependent: :destroy
+  has_many :tags, through: :tag_relationships
   
-  validates :title,presence:true
-  validates :body,presence:true,length:{maximum:200}
+  validates :title, presence: true
+  validates :body, presence: true, length:{maximum:200}
+  validates :star, presence: true
   
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def save_tags(savebook_tags)
+    savebook_tags.each do |new_name|
+      book_tag = Tag.find_or_create_by(name: new_name)
+      self.tags << book_tag
+    end
+ end
+
 
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }

@@ -31,6 +31,13 @@
           <% end %>
         </tr>
       </table>
+
+      <div class="mt-2">
+        <h5>タグ</h5>
+        <% @book.tags.each do |tag| %>
+          <%=link_to tag.name, search_path(name: tag.name), class: "pb-2"%>
+        <%end%>
+      </div>
       
       <div class="book-comments-index">
         <%= render "book_comments/index", book: @book %>
