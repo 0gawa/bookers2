@@ -24,12 +24,20 @@
             <%= render "book_comments/counter", book: @book %>
           </td>
           <td>閲覧数<%=@book.view_count%>回</td>
+          <td><%= render "layouts/static_star", book: @book %></td>
           <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}" %></td>
           <% end %>
         </tr>
       </table>
+
+      <div class="mt-2">
+        <h5>タグ</h5>
+        <% @book.tags.each do |tag| %>
+          <%=link_to tag.name, search_path(name: tag.name), class: "pb-2"%>
+        <%end%>
+      </div>
       
       <div class="book-comments-index">
         <%= render "book_comments/index", book: @book %>
