@@ -60,3 +60,5 @@ gem 'jp_prefecture'
 
 #環境変数を利用するため
 gem 'dotenv-rails'
+
+gem "geocoder"
