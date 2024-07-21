@@ -23,6 +23,11 @@ class User < ApplicationRecord
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
+  validates :address, presence: true
+  validates :postal_code, presence: true
+
+  include JpPrefecture
+  jp_prefecture :prefecture_code
   
   def follow(user)
     relationships.create(followed_id: user.id)

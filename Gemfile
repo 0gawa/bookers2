@@ -55,4 +55,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
+#都道府県コードから名前に変換するため
+gem 'jp_prefecture'
+
+#環境変数を利用するため
 gem 'dotenv-rails'
